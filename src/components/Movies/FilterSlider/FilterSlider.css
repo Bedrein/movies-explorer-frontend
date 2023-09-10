@@ -1,0 +1,65 @@
+.slider {
+  padding: 33px 70px 47px;
+  display: flex;
+}
+
+.slider__btn {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.slider__input {
+  position: absolute;
+  width: 1px;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.slider__switch {
+  width: 36px;
+  height: 20px;
+  background-image: url(../../../images/checkbox-button-off.svg);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.slider__input:checked + .slider__switch {
+  background-image: url(../../../images/checkbox-button-on.svg);
+}
+
+.slider__text {
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .slider {
+    padding: 30px 30px 60px;
+  }
+
+  .slider__btn {
+    flex-direction: row-reverse;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .slider {
+    padding: 36px 0 50px;
+  }
+
+  .slider__text {
+    font-size: 11px;
+  }
+
+  .slider__btn {
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    gap: 13px;
+  }
+}

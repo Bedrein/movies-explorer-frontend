@@ -1,0 +1,208 @@
+.about-project {
+  margin: 0;
+  max-width: 1140px;
+  padding: 110px 70px;
+  color: #000;
+  font-family: inherit;
+}
+
+.about-project__title {
+  margin: 0;
+  padding-bottom: 23px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+
+  border-bottom: 1px solid #000;
+}
+
+.about-project__discription {
+  padding-top: 70px;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.about-project__discription_title {
+  margin: 0;
+  max-width: 550px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+
+.about-project__discription_subtitle {
+  margin: 0;
+  padding-top: 26px;
+  max-width: 550px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.about-project__roadmap {
+  margin: 0 auto;
+  padding-top: 110px;
+  display: flex;
+  max-width: 1140px;
+}
+.about-project__part-one {
+  margin: 0;
+  width: 228px;
+  height: 36px;
+  background-color: #3ddc84;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px;
+}
+.about-project__part-two {
+  margin-top: 0;
+  margin-bottom: 14px;
+  width: 912px;
+  height: 36px;
+  background-color: #f2f2f2;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px;
+}
+.about-project__roadmap-captions {
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1140px;
+  text-align: center;
+}
+.about-project__roadmap-caption {
+  margin: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  color: #8b8b8b;
+}
+.roadmap-caption_one {
+  width: 228px;
+}
+.roadmap-caption_two {
+  width: 912px;
+}
+
+@media screen and (max-width: 820px) {
+  .about-project {
+    max-width: 668px;
+    padding: 90px 50px;
+  }
+
+  .about-project__discription {
+    gap: 30px;
+  }
+
+  .about-project__discription_title {
+    max-width: 319px;
+  }
+
+  .about-project__discription_subtitle {
+    padding-top: 22px;
+    max-width: 319px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__roadmap {
+    padding-top: 93px;
+    max-width: 668px;
+  }
+  .about-project__part-one {
+    width: 140px;
+  }
+  .about-project__part-two {
+    width: 528px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 528px) {
+  .about-project {
+    margin: 0;
+    padding: 70px 18px;
+  }
+
+  .about-project__title {
+    padding-bottom: 28px;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: -0.72px;
+    border-bottom: 1px solid #000;
+    letter-spacing: -0.72px;
+  }
+
+  .about-project__discription {
+    margin: 0;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .about-project__discription_title {
+    max-width: 284px;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: -0.72px;
+  }
+
+  .about-project__discription_subtitle {
+    padding-top: 16px;
+    max-width: 284px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-project__roadmap {
+    margin-top: 60px;
+    padding-top: 4px;
+    max-width: 284px;
+    justify-content: center;
+  }
+  .about-project__part-one {
+    width: 100px;
+    height: 35px;
+    font-size: 11px;
+    line-height: 35px;
+  }
+  .about-project__part-two {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 184px;
+    height: 35px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35px;
+  }
+  .about-project__roadmap-captions {
+    align-items: center;
+    justify-content: center;
+  }
+  .about-project__roadmap-caption {
+    margin: 0;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .roadmap-caption_one {
+    width: 100px;
+  }
+  .roadmap-caption_two {
+    width: 184px;
+  }
+}

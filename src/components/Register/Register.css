@@ -1,0 +1,165 @@
+.registr {
+  display: flex;
+  margin: 70px auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registr__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.registr__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.registr__logo:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.registr__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+  margin-top: 37px;
+}
+
+.registr__form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.registr__label {
+  color: #a0a0a0;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 5px;
+}
+
+.registr__input {
+  background-color: #fff;
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+.registr__input:focus {
+  outline: none;
+}
+
+.registr__input:last-of-type {
+  margin-bottom: 0;
+}
+
+.registr_form-span-error {
+  color: #ff3055;
+  margin: 6px 0 0 0;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+.registr__button {
+  text-align: center;
+  background-color: rgba(52, 86, 243, 1);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  width: 396px;
+  height: 45px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 149px;
+  margin-bottom: 16px;
+}
+
+.registr__button:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.registr__footer-text {
+  text-align: center;
+  color: #a0a0a0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 auto;
+}
+
+.registr__link {
+  text-align: center;
+  color: #3456f3;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-left: 6px;
+}
+
+.registr__link:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+@media (max-width: 820px) {
+  .registr {
+    margin-top: 232px;
+  }
+}
+
+@media (max-width: 500px) {
+  .registr {
+    margin-top: 56px;
+    align-items: center;
+  }
+
+  .registr__container {
+    align-items: center;
+  }
+
+  .registr__title {
+    margin-top: 47px;
+  }
+
+  .registr__form {
+    margin-top: 80px;
+  }
+
+  .registr__link {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .registr__button {
+    width: 260px;
+    margin-top: 237px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .registr__footer-text {
+    font-size: 12px;
+  }
+}

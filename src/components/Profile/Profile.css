@@ -1,0 +1,143 @@
+.profile {
+  margin: 54px auto 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.profile__form {
+  margin: 104px auto 220px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 19px;
+}
+
+.profile__form-item {
+  display: flex;
+  justify-content: space-between;
+  width: 410px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.profile__form-item:last-child {
+  padding: 0;
+  border: none;
+}
+
+.profile__label {
+  color: #000;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+}
+
+.profile__input {
+  color: #000;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  border: none;
+  text-align: end;
+  width: 80%;
+  padding: 0;
+}
+
+.profile__input:focus {
+  outline: none;
+  color: #000;
+}
+
+.profile__button {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.profile__button:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.profile__button-exit {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #ff3055;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.profile__button-exit:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+@media screen and (max-width: 820px) {
+  .profile {
+    margin-top: 216px;
+    margin-bottom: 269px;
+  }
+
+  .profile__form {
+    margin-top: 78px;
+    margin-bottom: 210px;
+    gap: 17px;
+  }
+
+  .profile__label {
+    color: #000;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile {
+    margin-top: 47px;
+    margin-bottom: 40px;
+  }
+
+  .profile__form {
+    margin-top: 62px;
+    margin-bottom: 379px;
+    gap: 17px;
+  }
+
+  .profile__form-item {
+    width: 260px;
+  }
+
+  .profile__input {
+    font-weight: 400;
+  }
+
+  .profile__button {
+    font-size: 12px;
+    line-height: 14.5px;
+  }
+
+  .profile__button-exit {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.5px;
+  }
+}

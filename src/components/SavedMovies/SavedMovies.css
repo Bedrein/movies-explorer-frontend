@@ -1,0 +1,33 @@
+.movies__box {
+  min-height: 232px;
+}
+
+.movies__button-more {
+  border: none;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  height: 36px;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.movies__button-more:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 769px) {
+  .movies__box-button-more {
+    margin: 61px 30px 89px 30px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .movies__box {
+    min-height: 140px;
+  }
+
+  .movies__box-button-more {
+    margin: 50px 10px 80px 10px;
+  }
+}
