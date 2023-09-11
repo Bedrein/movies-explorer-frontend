@@ -5,11 +5,11 @@ function Techs() {
     <section className='techs'>
       <h2 className='techs__title'>Технологии</h2>
       <div className='techs__discription'>
-        <h2 className='techs__discription-title'>7 технологий</h2>
-        <h3 className='techs__discription-subtitle'>
+        <h3 className='techs__discription-title'>7 технологий</h3>
+        <h4 className='techs__discription-subtitle'>
           На курсе веб-разработки мы освоили технологии, которые применили в
           дипломном проекте.
-        </h3>
+        </h4>
       </div>
       <ul className='techs__items'>
         <li className='techs__item'>HTML</li>

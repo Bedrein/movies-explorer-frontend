@@ -6,12 +6,12 @@ import './SavedMovies.css';
 
 function SavedMovies() {
   return (
-    <>
+    <section className='saved-movies'>
       <SearchForm />
       <FilterSlider />
       <MoviesCardList />
       <div className='movies__box'></div>
-    </>
+    </section>
   );
 }
 

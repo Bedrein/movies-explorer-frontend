@@ -59,7 +59,8 @@
 }
 
 .registr__input:focus {
-  outline: none;
+  border: none;
+  outline: 2px solid rgba(52, 86, 243, 1);
 }
 
 .registr__input:last-of-type {

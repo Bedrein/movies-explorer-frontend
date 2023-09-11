@@ -9,35 +9,29 @@ function Portfolio() {
         <li className='portfolio__item'>
           <Link
             className='portfolio__link'
-            to={'https://github.com/Bedrein/how-to-learn'}>
+            to={'https://github.com/Bedrein/how-to-learn'}
+            target='_blank'>
             Статичный сайт
-          </Link>
-
-          <div>
             <p className='portfolio__arrow'>↗</p>
-          </div>
+          </Link>
         </li>
         <li className='portfolio__item'>
           <Link
             className='portfolio__link'
-            to={'https://github.com/Bedrein/russian-travel'}>
+            to={'https://github.com/Bedrein/russian-travel'}
+            target='_blank'>
             Адаптивный сайт
-          </Link>
-
-          <div>
             <p className='portfolio__arrow'>↗</p>
-          </div>
+          </Link>
         </li>
         <li className='portfolio__item'>
           <Link
             className='portfolio__link'
-            to={'https://github.com/Bedrein/react-mesto-api-full-gha'}>
+            to={'https://github.com/Bedrein/react-mesto-api-full-gha'}
+            target='_blank'>
             Одностраничное приложение
-          </Link>
-
-          <div>
             <p className='portfolio__arrow'>↗</p>
-          </div>
+          </Link>
         </li>
       </ul>
     </section>

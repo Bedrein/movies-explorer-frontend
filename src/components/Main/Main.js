@@ -10,13 +10,13 @@ import React from 'react';
 
 function Main() {
   return (
-    <section className='main'>
+    <main className='main'>
       <Promo />
       <AboutProject />
       <Techs />
       <AboutMe />
       <Portfolio />
-    </section>
+    </main>
   );
 }
 

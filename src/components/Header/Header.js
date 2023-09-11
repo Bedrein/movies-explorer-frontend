@@ -14,7 +14,7 @@ function Header() {
 
   const isMainPage = location.pathname === '/';
 
-  const [loggedIn, setLoggedIn] = useState(true); // hard coding
+  const [loggedIn, setLoggedIn] = useState(false); // hard coding
 
   function handleOpenBurgerMenu() {
     setIsBurgerMenuOpen(true);

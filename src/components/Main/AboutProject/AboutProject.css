@@ -23,7 +23,7 @@
   justify-content: space-between;
 }
 
-.about-project__discription_title {
+.about-project__discription-title {
   margin: 0;
   max-width: 550px;
   font-family: Inter;
@@ -33,7 +33,7 @@
   letter-spacing: -0.04em;
 }
 
-.about-project__discription_subtitle {
+.about-project__discription-subtitle {
   margin: 0;
   padding-top: 26px;
   max-width: 550px;
@@ -87,10 +87,10 @@
   line-height: 17px;
   color: #8b8b8b;
 }
-.roadmap-caption_one {
+.roadmap-caption-one {
   width: 228px;
 }
-.roadmap-caption_two {
+.roadmap-caption-two {
   width: 912px;
 }
 
@@ -104,11 +104,11 @@
     gap: 30px;
   }
 
-  .about-project__discription_title {
+  .about-project__discription-title {
     max-width: 319px;
   }
 
-  .about-project__discription_subtitle {
+  .about-project__discription-subtitle {
     padding-top: 22px;
     max-width: 319px;
     font-size: 12px;
@@ -152,14 +152,14 @@
     gap: 56px;
   }
 
-  .about-project__discription_title {
+  .about-project__discription-title {
     max-width: 284px;
     font-size: 18px;
     line-height: normal;
     letter-spacing: -0.72px;
   }
 
-  .about-project__discription_subtitle {
+  .about-project__discription-subtitle {
     padding-top: 16px;
     max-width: 284px;
     font-size: 11px;
@@ -199,10 +199,10 @@
     font-weight: 400;
     line-height: normal;
   }
-  .roadmap-caption_one {
+  .roadmap-caption-one {
     width: 100px;
   }
-  .roadmap-caption_two {
+  .roadmap-caption-two {
     width: 184px;
   }
 }

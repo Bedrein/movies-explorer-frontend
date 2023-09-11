@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <section className='footer'>
+    <footer className='footer'>
       <h2 className='footer__title'>
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h2>
@@ -13,15 +13,21 @@ function Footer() {
         </div>
 
         <div className='footer__links'>
-          <Link className='footer__link' to='https://practicum.yandex.ru/'>
+          <Link
+            className='footer__link'
+            to='https://practicum.yandex.ru/'
+            target='_blank'>
             Яндекс.Практикум
           </Link>
-          <Link className='footer__link' to='https://github.com/Bedrein'>
+          <Link
+            className='footer__link'
+            to='https://github.com/Bedrein'
+            target='_blank'>
             Github
           </Link>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }
 

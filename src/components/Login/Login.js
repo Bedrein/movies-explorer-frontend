@@ -10,12 +10,28 @@ function Login() {
         <Link to='/'>
           <img src={logo} alt='Логотип' className='login__logo' />
         </Link>
-        <h2 className='login__title'>Рады видеть!</h2>
+        <h1 className='login__title'>Рады видеть!</h1>
         <form className='login__form'>
           <label className='login__label'>E-mail</label>
-          <input className='login__input' type='email' required />
+          <input
+            className='login__input'
+            type='email'
+            name='email'
+            minLength={5}
+            maxLength={30}
+            placeholder='Email'
+            required
+          />
           <label className='login__label'>Пароль</label>
-          <input className='login__input' type='password' required />
+          <input
+            className='login__input'
+            type='password'
+            name='password'
+            minLength={6}
+            maxLength={12}
+            placeholder='Пароль'
+            required
+          />
           <span className='login__form-span-error'></span>
           <button className='login__button' type='submit'>
             Войти
