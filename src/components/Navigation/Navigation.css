@@ -1,0 +1,37 @@
+.navigation {
+  padding-left: 66px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navigation__movies-link {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.navigation__text-color_white {
+  color: #fff;
+}
+
+.navigation__text-color_black {
+  color: #000;
+}
+
+.navigation__movies-link_active {
+  font-weight: 500;
+}
+
+.navigation__movies-link:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+}

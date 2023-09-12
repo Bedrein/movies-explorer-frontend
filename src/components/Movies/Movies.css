@@ -1,0 +1,51 @@
+.movies {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.movies__container-more {
+  margin: 50px 0 80px;
+}
+
+.movies__button-more {
+  padding: 0;
+  display: block;
+  width: 320px;
+  height: 36px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  color: inherit;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  border: none;
+}
+
+.movies__button-more:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .movies__button-more {
+    margin-top: 66px;
+  }
+
+  .movies__container-more {
+    margin: -15px 0 80px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movies__container-more {
+    margin: -14px 0 80px;
+  }
+
+  .movies__button-more {
+    width: 240px;
+  }
+}
