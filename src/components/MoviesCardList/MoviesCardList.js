@@ -1,14 +1,28 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
-import moviesList from '../../utils/constans.js';
 
 import './MoviesCardList.css';
 
-function MoviesCardList() {
+function MoviesCardList({
+  moviesList,
+  isSavedMoviesPage,
+  savedMovies,
+  savedMoviesList,
+  onSave,
+  onDelete,
+}) {
+  const renderMovies = isSavedMoviesPage ? savedMoviesList : moviesList;
   return (
     <section className='cards'>
       <ul className='cards__list'>
-        {moviesList.map((item) => (
-          <MoviesCard key={item.id} movie={item} />
+        {renderMovies.map((movie) => (
+          <MoviesCard
+            movie={movie}
+            key={movie.id}
+            onSave={onSave}
+            onDelete={onDelete}
+            isSavedMoviesPage={isSavedMoviesPage}
+            savedMovies={savedMovies}
+          />
         ))}
       </ul>
     </section>

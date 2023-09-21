@@ -93,6 +93,10 @@
   margin-bottom: 16px;
 }
 
+.login__button-disable {
+  background-color: rgb(124, 124, 124);
+}
+
 .login__button:hover {
   opacity: 0.8;
   transition: opacity 0.2s;
