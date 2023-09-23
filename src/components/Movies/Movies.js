@@ -21,6 +21,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
   const [isShortFilm, setIsShortFilm] = useState(
     localStorage.getItem('isShortFilm') === 'true' || false
   );
+  const [error, setError] = useState(null);
 
   const handleQuery = (newQuery) => {
     setQuery(newQuery);
@@ -40,21 +41,13 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
   function getInitialVisibleCards() {
     const screenWidth = window.innerWidth;
-    return screenWidth >= 1279
-      ? 16
-      : screenWidth >= 1040
-      ? 12
-      : screenWidth >= 641
-      ? 8
-      : 5;
+    return screenWidth > 1160 ? 16 : screenWidth >= 641 ? 8 : 5;
   }
 
   const handleShowMore = () => {
     const screenWidth = window.innerWidth;
-    if (screenWidth >= 1279) {
+    if (screenWidth > 1160) {
       setVisibleCards((visibleCards) => visibleCards + 4);
-    } else if (screenWidth >= 1040) {
-      setVisibleCards((visibleCards) => visibleCards + 3);
     } else {
       setVisibleCards((visibleCards) => visibleCards + 2);
     }
@@ -96,39 +89,46 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
   };
 
   const handleSearch = async (query, isShortFilm) => {
-    setIsLoading(true);
-    let filteredMovies = movies;
-    if (movies.length === 0) {
-      filteredMovies = await getMovies();
-    }
-
-    let searchResults;
-
-    if (isShortFilm) {
-      filteredMovies = movies.filter((movie) => movie.duration <= 40);
-      searchResults = filteredMovies.filter((movie) => {
-        return (
-          movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
-          movie.nameEN.toLowerCase().includes(query.toLowerCase())
-        );
-      });
+    if (!query.trim()) {
+      setError('Нужно ввести ключевое слово');
+      return;
     } else {
-      searchResults = filteredMovies.filter((movie) => {
-        return (
-          movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
-          movie.nameEN.toLowerCase().includes(query.toLowerCase())
-        );
-      });
-    }
-    setSearchResults(searchResults);
-    setHasSearched(true);
-    localStorage.setItem('searchResults', JSON.stringify(searchResults));
-    setVisibleCards(getInitialVisibleCards());
+      setError(null);
+      /// здесь
+      setIsLoading(true);
+      let filteredMovies = movies;
+      if (movies.length === 0) {
+        filteredMovies = await getMovies();
+      }
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-    return;
+      let searchResults;
+
+      if (isShortFilm) {
+        filteredMovies = movies.filter((movie) => movie.duration <= 40);
+        searchResults = filteredMovies.filter((movie) => {
+          return (
+            movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
+            movie.nameEN.toLowerCase().includes(query.toLowerCase())
+          );
+        });
+      } else {
+        searchResults = filteredMovies.filter((movie) => {
+          return (
+            movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
+            movie.nameEN.toLowerCase().includes(query.toLowerCase())
+          );
+        });
+      }
+      setSearchResults(searchResults);
+      setHasSearched(true);
+      localStorage.setItem('searchResults', JSON.stringify(searchResults));
+      setVisibleCards(getInitialVisibleCards());
+
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 800);
+      return;
+    }
   };
   return (
     <section className='movies'>
@@ -147,7 +147,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
       {isLoading ? (
         <Preloader />
-      ) : !movies || (hasSearched && searchResults.length === 0) ? (
+      ) : hasSearched && searchResults.length === 0 ? (
         <p className='movies__info'>Ничего не найдено</p>
       ) : (
         <MoviesCardList
@@ -157,6 +157,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
           onSave={onSave}
         />
       )}
+      <p className='movies__info'>{error}</p>
       <div className='movies__container-more'>
         {searchResults === 0 || visibleCards < searchResults.length ? (
           <button

@@ -17,11 +17,11 @@ function MoviesCard({
   const isSaved =
     !isSavedMoviesPage && savedMovies.some((item) => item.movieId === movie.id);
 
-  function handleSaveClick() {
+  function handleSave() {
     onSave(movie);
   }
 
-  function handleDeleteClick() {
+  function handleDelete() {
     onDelete(movie);
   }
   function convertMinutesToHoursAndMinutes(minutes) {
@@ -40,13 +40,13 @@ function MoviesCard({
         <h2 className='card__title'>{movie.nameRU}</h2>
 
         {location.pathname === '/saved-movies' ? (
-          <button className='card__delete-button' onClick={handleDeleteClick} />
+          <button className='card__delete-button' onClick={handleDelete} />
         ) : (
           <button
             className={`card__like-button ${
               isSaved ? 'card__like-button_active' : ''
             }`}
-            onClick={!isSavedMoviesPage ? handleSaveClick : handleDeleteClick}
+            onClick={!isSavedMoviesPage ? handleSave : handleDelete}
           />
         )}
       </div>

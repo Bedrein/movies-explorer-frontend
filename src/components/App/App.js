@@ -61,7 +61,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setRegisterError('Введен неверный Email или пароль');
+        setRegisterError('Что-то пошло не так...');
       })
       .finally(() => {
         setIsLoading(false);
@@ -88,7 +88,6 @@ function App() {
       });
   }
 
-  // Функция обновления профиля
   const handleUpdateProfile = ({ email, name }) => {
     return mainApi
       .patchProfileInfo({ email, name })
@@ -196,22 +195,6 @@ function App() {
     handleCheckToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Получение списка фильмов
-  useEffect(() => {
-    setIsLoading(true);
-    moviesApi
-      .getMovies()
-      .then((data) => {
-        setAllMovies(data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error('Ошибка при получении фильмов: ', err);
-        setError('Ошибка при загрузке фильмов');
-        setIsLoading(false);
-      });
-  }, [userSessionChanged]);
 
   // Получение сохраненных фильмов
   useEffect(() => {

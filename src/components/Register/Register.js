@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { EMAIL_VALID } from '../../utils/constans.js';
+import { EMAIL_VALID, NAME_VALID } from '../../utils/constans.js';
 import './Register.css';
 
 function Register({
@@ -11,44 +11,65 @@ function Register({
   setErrorMessage,
   isLoading,
 }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [isFormNull, setIsFormNull] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isServerError, setIsServerError] = useState(false);
+  const [userData, setUserData] = useState({
+    name: { value: '', isValid: false, errorMessage: '' },
+    email: { value: '', isValid: false, errorMessage: '' },
+    password: { value: '', isValid: false, errorMessage: '' },
+  });
 
   useEffect(() => {
-    const isInputValid = () => {
-      const nameValid = name.trim().length >= 2 && name.trim().length <= 20;
-      const emailValid = EMAIL_VALID.test(email.trim());
-      const passwordValid = password.trim().length >= 8;
-      return nameValid && emailValid && passwordValid;
-    };
+    if (errorMessage) {
+      setIsServerError(true);
+    }
+  }, [errorMessage]);
 
-    setIsFormValid(isInputValid());
-    setIsFormNull(
-      name.trim() === '' || email.trim() === '' || password.trim() === ''
-    );
-  }, [name, email, password]);
+  // Проверка валидности формы
+  const isFormValid =
+    userData.name.isValid &&
+    userData.email.isValid &&
+    userData.password.isValid;
 
-  function handleSubmit(evt) {
+  const handleChange = (evt) => {
+    const { name, value, validity, validationMessage } = evt.target;
+    let isValidInput = validity.valid;
+    let errorMessage = validationMessage;
+
+    if (name === 'email' && !EMAIL_VALID.test(value)) {
+      isValidInput = false;
+      errorMessage = 'Ошибка ввода адреса электронной почты.';
+    } else if (name === 'name' && !NAME_VALID.test(value)) {
+      isValidInput = false;
+      errorMessage =
+        'Имя может содержать только латиницу, кириллицу, пробел или дефис.';
+    }
+
+    setUserData((state) => ({
+      ...state,
+      [name]: {
+        ...state[name],
+        value,
+        isValid: isValidInput,
+        errorMessage,
+      },
+    }));
+    setIsServerError(false);
+    setErrorMessage('');
+  };
+
+  const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleRegister({ name, email, password });
-  }
-  function handleChangeName(evt) {
-    setName(evt.target.value);
-    setErrorMessage('');
-  }
+    setIsSubmitting(true);
+    handleRegister({
+      name: userData.name.value,
+      email: userData.email.value,
+      password: userData.password.value,
+    }).finally(() => {
+      setIsSubmitting(false);
+    });
+  };
 
-  function handleChangeEmail(evt) {
-    setEmail(evt.target.value);
-    setErrorMessage('');
-  }
-
-  function handleChangePassword(evt) {
-    setPassword(evt.target.value);
-    setErrorMessage('');
-  }
   return (
     <section className='registr'>
       <div className='registr__container'>
@@ -66,9 +87,12 @@ function Register({
             minLength={2}
             maxLength={30}
             required
-            value={name || ''}
-            onChange={handleChangeName}
+            value={userData.name.value}
+            onChange={handleChange}
           />
+          <span className='registr__form-span-error'>
+            {userData.name.errorMessage}
+          </span>
           <label className='registr__label'>E-mail</label>
           <input
             className='registr__input'
@@ -78,32 +102,38 @@ function Register({
             maxLength={30}
             placeholder='Email'
             required
-            value={email || ''}
-            onChange={handleChangeEmail}
+            value={userData.email.value}
+            onChange={handleChange}
             disabled={isLoading}
           />
+          <span className='registr__form-span-error'>
+            {userData.email.errorMessage}
+          </span>
+
           <label className='registr__label'>Пароль</label>
           <input
             className='registr__input'
             type='password'
             name='password'
-            minLength={6}
-            maxLength={12}
+            minLength={8}
             placeholder='Пароль'
             required
-            value={password || ''}
-            onChange={handleChangePassword}
+            value={userData.password.value}
+            onChange={handleChange}
             disabled={isLoading}
           />
-          <span className='registr__form-span-error'>{errorMessage}</span>
+          <span className='registr__form-span-error'>
+            {userData.password.errorMessage}
+            {errorMessage}
+          </span>
           <button
             className={`registr__button ${
-              isLoading || isFormNull || !isFormValid
+              isSubmitting || !isFormValid || isServerError
                 ? 'registr__button-disable'
                 : ''
             }`}
             type='submit'
-            disabled={isLoading || isFormNull || !isFormValid}>
+            disabled={isSubmitting || !isFormValid || isServerError}>
             Зарегистрироваться
           </button>
         </form>
