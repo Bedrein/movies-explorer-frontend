@@ -1,39 +1,56 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../utils/constans.js';
 
 import './MoviesCard.css';
 
-function MoviesCard(props) {
+function MoviesCard({
+  isSavedMoviesPage,
+  savedMovies,
+  onSave,
+  onDelete,
+  movie,
+}) {
   const location = useLocation();
 
-  const [isLike, setIsLike] = useState(false);
+  const imageUrl = isSavedMoviesPage ? movie.image : BASE_URL + movie.image.url;
+  const isSaved =
+    !isSavedMoviesPage && savedMovies.some((item) => item.movieId === movie.id);
 
-  const handleLikeButton = () => {
-    setIsLike(!isLike);
-  };
+  function handleSave() {
+    onSave(movie);
+  }
+
+  function handleDelete() {
+    onDelete(movie);
+  }
+  function convertMinutesToHoursAndMinutes(minutes) {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    return `${hours} ч ${remainingMinutes} мин`;
+  }
+  const formattedDuration = convertMinutesToHoursAndMinutes(movie.duration);
 
   return (
-    <li className='card'>
-      <img
-        className='card__image'
-        src={props.movie.image}
-        alt='Постер фильма'
-      />
+    <li className='card' key={movie.id}>
+      <Link to={movie.trailerLink} target='_blank' rel='noopener noreferrer'>
+        <img className='card__image' src={imageUrl} alt={movie.nameRU} />
+      </Link>
       <div className='card__container'>
-        <h2 className='card__title'>{props.movie.nameRU}</h2>
+        <h2 className='card__title'>{movie.nameRU}</h2>
 
         {location.pathname === '/saved-movies' ? (
-          <button className='card__delete-button' />
+          <button className='card__delete-button' onClick={handleDelete} />
         ) : (
           <button
             className={`card__like-button ${
-              isLike ? 'card__like-button_active' : ''
+              isSaved ? 'card__like-button_active' : ''
             }`}
-            onClick={handleLikeButton}
+            onClick={!isSavedMoviesPage ? handleSave : handleDelete}
           />
         )}
       </div>
-      <p className='card__subtitle'>{props.movie.duration}</p>
+      <p className='card__subtitle'>{formattedDuration}</p>
     </li>
   );
 }

@@ -25,7 +25,7 @@
   transition: all 0.3s ease-out;
 }
 
-.slider__input:checked + .slider__switch {
+.slider__switch_active {
   background-image: url(../../../images/checkbox-button-on.svg);
 }
 

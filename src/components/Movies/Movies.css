@@ -30,6 +30,14 @@
   opacity: 0.8;
 }
 
+.movies__button-more_hidden {
+  display: none;
+}
+
+.movies__info {
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 768px) {
   .movies__button-more {
     margin-top: 66px;

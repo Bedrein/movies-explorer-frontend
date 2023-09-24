@@ -8,13 +8,11 @@ import accountBtnWhite from '../../images/accountBtnWhite.svg';
 
 import './Header.css';
 
-function Header() {
+function Header({ loggedIn }) {
   const location = useLocation();
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const isMainPage = location.pathname === '/';
-
-  const [loggedIn, setLoggedIn] = useState(false); // hard coding
 
   function handleOpenBurgerMenu() {
     setIsBurgerMenuOpen(true);
